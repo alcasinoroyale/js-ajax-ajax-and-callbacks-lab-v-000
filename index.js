@@ -17,7 +17,7 @@ function renderCommits(data) {
   return `<ul>${result}</ul>`;
 }
 
-function showCommits(el){
+function showCommits = (el) => {
   $.get(`https://api.github.com/repos/${el.dataset.owner}/${el.dataset.repository}/commits`, data => {
     $('#details').html(renderCommits(data))
   }).fail(error => {
@@ -26,8 +26,8 @@ function showCommits(el){
 }
 
 function renderRepositories(repo) {
-  return
-  `<li>
+  return `
+  <li>
   Name: ${repo.name}
   Description: ${repo.description}
   URL: <a href= "${repo.html_url}">${repo.html_url}</a>
