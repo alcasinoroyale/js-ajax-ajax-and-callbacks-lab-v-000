@@ -31,4 +31,7 @@ function renderRepositories(repo) {
 function showCommits(el) {
   const owner = el.dataset.owner;
   const repo = el.dataset.repository;
+  $.get(`https://api.github.com/repos/${owner}/${repo}/commits`, function(data){
+    $('#details').html(renderCommits(data));
+  }).fail(error => displayError())
 }
