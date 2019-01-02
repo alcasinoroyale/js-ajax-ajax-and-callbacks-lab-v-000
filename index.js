@@ -11,7 +11,7 @@ function searchRepositories() {
 }
 
 function displayRepositories(repos) {
-  return repos.items.map ( repo => renderRepositories(repo));
+  return repos.items.map(repo => renderRepositories(repo));
 }
 
 function renderRepositories(repo) {
