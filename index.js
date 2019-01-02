@@ -1,6 +1,15 @@
 $(document).ready(function (){
 });
 
+function searchRepositories() {
+  const searchTerms = document.getElementById('searchTerms').value
+  $.get(`https://api.github.com/search/repositories?q=${searchTerms}`, function(data){
+    $("#results").html(displayRepositories(data));
+  }).fail(error =>
+    displayError()
+  )
+}
+
 function displayError(error) {
   $('#errors').html("There was an error, please try again.");
 }
@@ -42,11 +51,4 @@ function displayRepositories(data) {
    return data.items.map( repo => renderRepositories(repo));
 }
 
-function searchRepositories() {
-  const searchTerms = document.getElementById('searchTerms').value
-  $.get(`https://api.github.com/search/repositories?q=${searchTerms}`, function(data){
-    $("#results").html(displayRepositories(data));
-  }).fail(error =>
-    displayError()
-  )
-}
+
