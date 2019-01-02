@@ -16,3 +16,12 @@ function renderCommits(data) {
   let result = data.map((commit) => renderCommit(commit)).join('');
   return `<ul>${result}</ul>`;
 }
+
+function showCommits(el) {
+  const owner = el.dataset.owner;
+  const repo = el.dataset.repository;
+  $.get(`https://api.github.com/repos/${owner}/${repo}/commits`, data => {
+  }).fail(error => {
+    displayError()
+  })
+}
