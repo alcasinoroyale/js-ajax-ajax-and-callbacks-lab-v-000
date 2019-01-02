@@ -27,3 +27,8 @@ function renderRepositories(repo) {
   <a href="#" data-repository="${repo.name}" data-owner="${repo.owner.login}"
   onclick="showCommits(this)">Show Commits</a></li>`;
 }
+
+function showCommits(el) {
+  const owner = el.dataset.owner;
+  const repo = el.dataset.repository;
+}
