@@ -35,3 +35,8 @@ function showCommits(el) {
     $('#details').html(renderCommits(data));
   }).fail(error => displayError())
 }
+
+function renderCommits(data) {
+  const result = data.map(commit) => renderCommit(commit)).join('');
+  return `<ul>${result}</ul>`;
+}
