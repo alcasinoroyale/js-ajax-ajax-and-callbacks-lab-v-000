@@ -50,5 +50,3 @@ function renderCommits(data) {
 function displayRepositories(data) {
    return data.items.map( repo => renderRepositories(repo));
 }
-
-
