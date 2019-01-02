@@ -14,10 +14,6 @@ function displayRepositories(data) {
    return data.items.map( repo => renderRepositories(repo));
 }
 
-function displayError(error) {
-  $('#errors').html("There was an error, please try again.");
-}
-
 function renderRepositories(repo) {
   return `
   <li>
