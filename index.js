@@ -28,20 +28,13 @@ function renderRepositories(repo) {
   onclick="showCommits(this)">Show Commits</a></li>`;
 }
 
-showCommits = (el) => {
-  $.get(`https://api.github.com/repos/${el.dataset.owner}/${el.dataset.repository}/commits`, data => {
-    $('#details').html(renderCommits(data))
-  }).fail(error => {
-    displayError()
-  })
-}
-
 function showCommits(el) {
   const owner = el.dataset.owner;
   const repo = el.dataset.repository;
-  $.get(`https://api.github.com/repos/${owner}/${repo}/commits`, function(data){
-    $('#details').html(renderCommits(data));
-  }).fail(function(error) => displayError(error))
+  $.get(`https://api.github.com/repos/${owner}/${repo}/commits`, data => {
+  }).fail(error => {
+    displayError()
+  })
 }
 
 function renderCommits(data) {
