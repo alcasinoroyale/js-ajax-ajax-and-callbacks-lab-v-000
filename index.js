@@ -33,8 +33,8 @@ function renderRepositories(repo) {
   <p>${result.description}</p></li>`;
 }
 
-function displayRepositories(repos) {
-  return repos.items.map(repo => renderRepositories(repo));
+function displayRepositories(data) {
+  return data.items.map(result => renderRepositories(result));
 }
 
 function searchRepositories() {
