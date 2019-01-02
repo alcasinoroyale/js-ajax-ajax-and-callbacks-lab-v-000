@@ -38,7 +38,7 @@ function getCommits(data) {
   return `<ul>${repo}</ul>`;
 }
 
-function getRepositories(data) {
+function displayRepositories(data) {
    return data.items.map( repo => renderRepositories(repo));
 }
 
