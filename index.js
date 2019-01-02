@@ -43,11 +43,10 @@ function getRepositories(data) {
 }
 
 function searchRepositories() {
-  const searchTerms = $('#searchTerms')[0].value;
-
-  $.get(`https://api.github.com/search/repositories?q=${searchTerms}`).done(function(data) {
-     $('#repos').html(getRepositories(data));
-   }).fail(function(error) {
-     displayError(error);
-  });
+  const searchTerms = document.getElementById('searchTerms').value
+  $.get(`https://api.github.com/search/repositories?q=${searchTerms}`, function(data){
+    $("#results").html(displayRepositories(data));
+  }).fail(error =>
+    displayError()
+  )
 }
