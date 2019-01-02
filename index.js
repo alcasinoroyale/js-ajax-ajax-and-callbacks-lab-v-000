@@ -20,5 +20,6 @@ function renderRepositories(repo) {
   Name: ${repo.name}
   Description: ${repo.description}
   URL: <a href= "${repo.html_url}">${repo.html_url}</a>
-  `
+  <a href="#" data-repository="${repo.name}" data-owner="${repo.owner.login}"
+  onclick="showCommits(this)">Show Commits</a>`;
 }
