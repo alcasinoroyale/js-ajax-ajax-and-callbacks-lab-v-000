@@ -28,8 +28,8 @@ function showCommits(el) {
 function renderCommit(commit) {
   return `
     <li><h3>Sha: ${commit.sha}</h3>
-    Name: ${commit.commit.author.name}<br>
-    Login: ${commit.author.login}<br>
+    <p>Name: ${commit.commit.author.name}</p><br>
+    <p>Login: ${commit.author.login}</p><br>
     <p>Message: ${commit.commit.message}</p></li>`;
 }
 
