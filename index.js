@@ -19,21 +19,21 @@ function showCommits(el) {
   const owner = el.dataset.owner;
   const repo  = el.dataset.repository;
   $.get(`https://api.github.com/repos/${owner}/${repo}/commits`).done(function(data) {
-     $('#details').html(getCommits(data));
+     $('#details').html(renderCommits(data));
    }).fail(function(error) {
      displayError(error);
   });
 }
 
 function getCommit(commit) {
-  return `<li><h3>Sha: ${commit.sha}</h3>
-         <img src="${commit.author.avatar_url}" alt="avatar" height="42"><br>
-         <strong>Name: </strong>${commit.commit.author.name}<br>
-         <strong>Login: </strong>${commit.author.login}<br>
-         <p><strong>Message: </strong>${commit.commit.message}</p></li>`;
+  return `
+    <li><h3>Sha: ${commit.sha}</h3>
+    Name: ${commit.commit.author.name}<br>
+    Login: ${commit.author.login}<br>
+    <p>Message: ${commit.commit.message}</p></li>`;
 }
 
-function getCommits(data) {
+function renderCommits(data) {
   const repo = data.map(commit => getCommit(commit)).join('');
   return `<ul>${repo}</ul>`;
 }
