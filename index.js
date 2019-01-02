@@ -34,7 +34,7 @@ function getCommit(commit) {
 }
 
 function getCommits(data) {
-  const repo = data.map( commit => getCommit(commit)).join('');
+  const repo = data.map(commit => getCommit(commit)).join('');
   return `<ul>${repo}</ul>`;
 }
 
