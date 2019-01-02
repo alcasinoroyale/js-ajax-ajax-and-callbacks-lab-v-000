@@ -10,6 +10,10 @@ function searchRepositories() {
   )
 }
 
+function displayRepositories(data) {
+   return data.items.map( repo => renderRepositories(repo));
+}
+
 function displayError(error) {
   $('#errors').html("There was an error, please try again.");
 }
@@ -45,8 +49,4 @@ function renderCommit(commit) {
 function renderCommits(data) {
   const repo = data.map(commit => renderCommit(commit)).join('');
   return `<ul>${repo}</ul>`;
-}
-
-function displayRepositories(data) {
-   return data.items.map( repo => renderRepositories(repo));
 }
