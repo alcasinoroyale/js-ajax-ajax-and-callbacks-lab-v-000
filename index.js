@@ -1,5 +1,4 @@
-$(document).ready(function (){
-});
+
 
 function displayError(error) {
   $('#errors').html("There was an error, please try again.");
@@ -48,3 +47,6 @@ function renderCommit(commit) {
   <p>${commit.commit.author.name}</p>
   <p>${commit.commit.message}</p></li>`
 }
+
+$(document).ready(function (){
+});
