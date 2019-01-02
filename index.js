@@ -28,9 +28,7 @@ function showCommits(el){
 function renderRepositories(repo) {
   return `
   <li>
-  Name: ${repo.name}
-  Description: ${repo.description}
-  URL: <a href= "${repo.html_url}">${repo.html_url}</a>
-  <a href="#" data-repository="${repo.name}" data-owner="${repo.owner.login}"
-  onclick="showCommits(this)">Show Commits</a></li>`;
+  <h2><a href="${result.html_url}">${result.name}</a></h2>
+  <p><a href="#" data-repository="${result.name}" data-owner="${result.owner.login}" onclick="showCommits(this)">Show Commits</a></p>
+  <p>${result.description}</p></li>`;
 }
