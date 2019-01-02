@@ -25,7 +25,7 @@ function showCommits(el){
   })
 }
 
-function renderRepositories(repo) {
+function renderRepositories(result) {
   return `
   <li>
   <h2><a href="${result.html_url}">${result.name}</a></h2>
