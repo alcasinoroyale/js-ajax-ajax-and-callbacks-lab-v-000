@@ -38,7 +38,7 @@ function showCommits(el) {
 }
 
 function renderCommits(data) {
-  const repo = data.map(commit) => renderCommit(commit)).join('');
+  const result = data.map(commit) => renderCommit(commit)).join('');
   return `<ul>${result}</ul>`;
 }
 
