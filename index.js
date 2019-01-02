@@ -8,17 +8,16 @@ function displayError(error) {
 function renderRepositories(repo) {
   return `
   <li>
-    Name: ${result.name}<br>
-    Description: ${result.description}<br>
-    URL: <a href="${result.html_url}">${result.html_url}</a><br>
-    <a href="#" data-repository="${result.name}" data-owner="${result.owner.login}"
+    Name: ${repo.name}<br>
+    Description: ${repo.description}<br>
+    URL: <a href="${repo.html_url}">${repo.html_url}</a><br>
+    <a href="#" data-repository="${repo.name}" data-owner="${repo.owner.login}"
     onclick="showCommits(this)">Show Commits</a><br></br>`;
 }
 
-function showCommits(ele) {
-  const repo  = ele.dataset.repository;
-  const owner = ele.dataset.owner;
-
+function showCommits(el) {
+  const owner = el.dataset.owner;
+  const repo  = el.dataset.repository;
   $.get(`https://api.github.com/repos/${owner}/${repo}/commits`).done(function(data) {
      $('#details').html(getCommits(data));
    }).fail(function(error) {
@@ -35,19 +34,19 @@ function getCommit(commit) {
 }
 
 function getCommits(data) {
-  const result = data.map( commit => getCommit(commit)).join('');
-  return `<ul>${result}</ul>`;
+  const repo = data.map( commit => getCommit(commit)).join('');
+  return `<ul>${repo}</ul>`;
 }
 
 function getRepositories(data) {
-   return data.items.map( result => renderRepositories(result));
+   return data.items.map( repo => renderRepositories(repo));
 }
 
 function searchRepositories() {
   const searchTerms = $('#searchTerms')[0].value;
 
   $.get(`https://api.github.com/search/repositories?q=${searchTerms}`).done(function(data) {
-     $('#results').html(getRepositories(data));
+     $('#repos').html(getRepositories(data));
    }).fail(function(error) {
      displayError(error);
   });
