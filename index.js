@@ -11,10 +11,14 @@ function searchRepositories() {
 }
 
 function displayRepositories(repos) {
-  return repos.items.map ( result => renderRepositories(result));
+  return repos.items.map ( repo => renderRepositories(repo));
 }
 
 function renderRepositories(repo) {
   return
-  `<li>`
+  `<li>
+  Name: ${repo.name}
+  Description: ${repo.description}
+  URL: <a href= "${repo.html_url}">${repo.html_url}</a>
+  `
 }
