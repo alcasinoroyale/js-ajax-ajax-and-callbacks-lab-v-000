@@ -36,3 +36,12 @@ function renderRepositories(repo) {
 function displayRepositories(repos) {
   return repos.items.map(repo => renderRepositories(repo));
 }
+
+function searchRepositories() {
+  const searchTerms = document.getElementById('searchTerms').value
+  $.get(`https://api.github.com/search/repositories?q=${searchTerms}`, data => {
+    $("#results").html(displayRepositories(data));
+  }).fail(error => {
+    displayError()
+  })
+}
