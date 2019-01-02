@@ -1,6 +1,10 @@
 $(document).ready(function (){
 });
 
+function displayError(error) {
+  $('#errors').html("There was an error, please try again.");
+}
+
 function searchRepositories() {
   const searchTerms = document.getElementById('searchTerms').value
   $.get(`https://api.github.com/search/repositories?q=${searchTerms}`, function(data){
