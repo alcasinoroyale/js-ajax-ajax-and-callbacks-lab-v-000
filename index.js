@@ -25,7 +25,7 @@ function showCommits(el) {
   });
 }
 
-function getCommit(commit) {
+function renderCommit(commit) {
   return `
     <li><h3>Sha: ${commit.sha}</h3>
     Name: ${commit.commit.author.name}<br>
@@ -34,7 +34,7 @@ function getCommit(commit) {
 }
 
 function renderCommits(data) {
-  const repo = data.map(commit => getCommit(commit)).join('');
+  const repo = data.map(commit => renderCommit(commit)).join('');
   return `<ul>${repo}</ul>`;
 }
 
