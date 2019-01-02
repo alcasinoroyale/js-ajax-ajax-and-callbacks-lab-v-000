@@ -11,3 +11,8 @@ function renderCommit(commit) {
   <p>${commit.commit.author.name}</p>
   <p>${commit.commit.message}</p></li>`
 }
+
+function renderCommits(data) {
+  const result = data.map(commit) => renderCommit(commit)).join('');
+  return `<ul>${result}</ul>`;
+}
