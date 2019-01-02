@@ -32,3 +32,7 @@ function renderRepositories(repo) {
   <p><a href="#" data-repository="${result.name}" data-owner="${result.owner.login}" onclick="showCommits(this)">Show Commits</a></p>
   <p>${result.description}</p></li>`;
 }
+
+function displayRepositories(repos) {
+  return repos.items.map(repo => renderRepositories(repo));
+}
